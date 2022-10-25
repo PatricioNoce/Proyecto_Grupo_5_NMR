@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from NMR_Food.views import AltaCliente
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('cliente-alta/', AltaCliente.as_view() ),
 ]
