@@ -25,6 +25,10 @@ class AltaCliente(View):
         
         return render(request, self.template_name, {"form": form})
 
+def mostrar_clientes(request):
+    lista_clientes = Cliente.objects.all()
+    return render(request, "NMR_Food/clientes.html", {"lista_clientes": lista_clientes})
+
 
 class BuscarCliente(View):
 

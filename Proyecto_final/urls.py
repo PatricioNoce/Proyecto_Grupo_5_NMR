@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from NMR_Food.views import AltaCliente, BuscarCliente
+from NMR_Food.views import AltaCliente, BuscarCliente, mostrar_clientes
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('cliente-alta/', AltaCliente.as_view() ),
     path('cliente-buscar/', BuscarCliente.as_view()),
+    path('mis-clientes/', mostrar_clientes),
 ]
