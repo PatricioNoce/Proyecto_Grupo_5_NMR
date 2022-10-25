@@ -10,3 +10,5 @@ class Cliente(models.Model) :
     def __str__(self):
         return f"Nombre:{self.nombre}, Telefono:{self.telefono}, Mail:{self.mail}, Direccion:{self.direccion}"
 
+class Configuracion(models.Model) :
+    nombre_pagina = models.CharField(max_length=100)

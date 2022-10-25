@@ -1,8 +1,12 @@
 from django.shortcuts import render
-from NMR_Food.models import Cliente
+from NMR_Food.models import Cliente, Configuracion
 from django.views import View
 from NMR_Food.forms import ClienteForm, Buscar
+
 # Create your views here.
+def index(request):
+    configuracion = Configuracion.objects.first()
+    return render(request, 'NMR_Food/index.html', {'configuracion': configuracion})
 
 class AltaCliente(View):
 
