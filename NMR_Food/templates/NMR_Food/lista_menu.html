@@ -2,9 +2,9 @@
 {% block titulo%} Lista de todos mis Menu {% endblock %}
 
 {% block contenido %}
-{% for menu in lista_menus %}
+{% for menu in lista_menu %}
     <ul>
-        <li> Comida: {{menu.Comida}}, Precio: {{menu.Precio}} </li>
+        <li> Comida: {{menu.comida}}, Precio: {{menu.precio}} </li>
     </ul>
 {% endfor %}
 {% endblock %}
