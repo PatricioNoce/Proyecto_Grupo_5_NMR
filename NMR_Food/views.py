@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from NMR_Food.models import Cliente, Configuracion
+from NMR_Food.models import Cliente, Configuracion, menu
 from django.views import View
 from NMR_Food.forms import ClienteForm, Buscar
 
@@ -55,3 +55,11 @@ class BuscarCliente(View):
 
         return render(request, self.template_name, {"form": form})
     
+    
+def mostrar_menu(request):
+    lista_menu = menu.objects.all()
+    return render(request, "NMR_Food/lista_menu.html", {"lista_menu": lista_menu})
+
+
+class armar_menu():
+    pass

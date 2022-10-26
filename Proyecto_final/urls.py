@@ -16,7 +16,7 @@ Including another URLconf
 from operator import index
 from django.contrib import admin
 from django.urls import path
-from NMR_Food.views import AltaCliente, BuscarCliente, mostrar_clientes, index
+from NMR_Food.views import AltaCliente, BuscarCliente, mostrar_clientes, index, mostrar_menu
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +24,6 @@ urlpatterns = [
     path('cliente-alta/', AltaCliente.as_view() ),
     path('cliente-buscar/', BuscarCliente.as_view()),
     path('mis-clientes/', mostrar_clientes),
+    path('menu/', mostrar_menu),
     
 ]

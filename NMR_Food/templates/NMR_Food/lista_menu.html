@@ -1,0 +1,10 @@
+{% extends 'NMR_Food/base.html' %}
+{% block titulo%} Lista de todos mis Menu {% endblock %}
+
+{% block contenido %}
+{% for menu in lista_menus %}
+    <ul>
+        <li> Comida: {{menu.comida}}, Precio: {{menu.precio}}</li>
+    </ul>
+{% endfor %}
+{% endblock %}

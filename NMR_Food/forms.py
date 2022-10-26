@@ -1,5 +1,5 @@
 from django import forms
-from NMR_Food.models import Cliente
+from NMR_Food.models import Cliente, menu
 
 class ClienteForm(forms.ModelForm):
   class Meta:
@@ -8,3 +8,8 @@ class ClienteForm(forms.ModelForm):
 
 class Buscar(forms.Form):
   nombre = forms.CharField(max_length=100)
+  
+class MenuForm(forms.ModelForm):
+  class Meta:
+    model = menu
+    fields = ['comida','precio']

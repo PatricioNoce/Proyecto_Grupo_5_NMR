@@ -12,3 +12,14 @@ class Cliente(models.Model) :
 
 class Configuracion(models.Model) :
     nombre_pagina = models.CharField(max_length=100)
+    
+
+class menu(models.Model):
+    menuSeleccion = (
+    ('Tacos', 'tacos'),
+    ('Hamburguesa', 'hamburguesa'),
+    ('Pizza', 'pizza'),
+    ('Empanadas', 'empanadas'),
+    )
+    comida= models.CharField(max_length=20, choices=menuSeleccion, default='hamburguesa')
+    precio= models.DecimalField(max_digits=5, decimal_places=2)
