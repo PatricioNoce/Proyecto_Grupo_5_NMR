@@ -59,6 +59,7 @@ class BuscarCliente(View):
 def mostrar_menu(request):
     lista_menu = menu.objects.all()
     return render(request, "NMR_Food/lista_menu.html", {"lista_menu": lista_menu})
+    
 
 
 class armar_menu():
