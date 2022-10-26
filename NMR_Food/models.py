@@ -22,4 +22,4 @@ class menu(models.Model):
     ('Empanadas', 'empanadas'),
     )
     comida= models.CharField(max_length=20, choices=menuSeleccion, default='hamburguesa')
-    precio= models.DecimalField(max_digits=5, decimal_places=2)
+    precio= models.IntegerField()
