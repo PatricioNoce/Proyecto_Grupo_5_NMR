@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from NMR_Food.models import Cliente, Configuracion, menu, Informacion
 from django.views import View
-from NMR_Food.forms import ClienteForm, Buscar, MenuForm
+from NMR_Food.forms import ClienteForm, Buscar, MenuForm, BuscarMenu
 
 # Create your views here.
 def index(request):
@@ -59,8 +59,27 @@ class BuscarCliente(View):
 def mostrar_menu(request):
     lista_menu = menu.objects.all()
     return render(request, "NMR_Food/lista_menu.html", {"lista_menu": lista_menu})
-    
 
+class BuscarMenu(View):
+
+    form_class = BuscarMenu
+    template_name = 'NMR_Food/buscar_menu.html'
+    initial = {"comida":""}
+
+    def get(self, request):
+        form = self.form_class(initial=self.initial)
+        return render(request, self.template_name, {'form':form})
+
+    def post(self, request):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            comida = form.cleaned_data.get("comida")
+            lista_menu = menu.objects.filter(comida__icontains=comida).all() 
+            form = self.form_class(initial=self.initial)
+            return render(request, self.template_name, {'form':form, 
+                                                        'lista_menu':lista_menu})
+
+        return render(request, self.template_name, {"form": form})
 
 class armar_menu():
     pass
