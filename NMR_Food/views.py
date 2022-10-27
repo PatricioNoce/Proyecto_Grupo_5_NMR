@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from NMR_Food.models import Cliente, Configuracion, menu
+from NMR_Food.models import Cliente, Configuracion, menu, Informacion
 from django.views import View
 from NMR_Food.forms import ClienteForm, Buscar, MenuForm
 
@@ -64,3 +64,7 @@ def mostrar_menu(request):
 
 class armar_menu():
     pass
+
+def about(request):
+    informacion = Informacion.objects.first()
+    return render(request, 'NMR_Food/about.html', {'informacion': informacion})

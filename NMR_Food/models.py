@@ -23,3 +23,6 @@ class menu(models.Model):
     )
     comida= models.CharField(max_length=20, choices=menuSeleccion, default='hamburguesa')
     precio= models.IntegerField()
+    
+class Informacion(models.Model) :
+    nombres_integrantes = models.CharField(max_length=100)
