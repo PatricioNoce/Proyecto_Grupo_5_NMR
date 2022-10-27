@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from NMR_Food.models import Cliente, Configuracion, menu, Informacion
 from django.views import View
-from NMR_Food.forms import ClienteForm, Buscar, MenuForm, BuscarMenu
+from NMR_Food.forms import ClienteForm, Buscar, BuscarMenu
 
 # Create your views here.
 def index(request):

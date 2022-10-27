@@ -12,7 +12,3 @@ class Buscar(forms.Form):
 class BuscarMenu(forms.Form):
   comida = forms.CharField(max_length=100)
   
-class MenuForm(forms.ModelForm):
-  class Meta:
-    model = menu
-    fields = ['comida','precio']
