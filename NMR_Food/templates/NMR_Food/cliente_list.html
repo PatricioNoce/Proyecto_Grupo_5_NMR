@@ -1,0 +1,10 @@
+{% extends 'NMR_Food/base.html' %}
+{% block titulo%} Lista de todos mis Clientes {% endblock %}
+
+{% block contenido %}
+{% for cliente in object_list %}
+    <ul>
+        <li> Nombre: {{cliente.nombre}}, Telefono: {{cliente.telefono}}, Mail: {{cliente.mail}}, Direccion: {{cliente.direccion}} </li>
+    </ul>
+{% endfor %}
+{% endblock %}

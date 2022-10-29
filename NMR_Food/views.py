@@ -117,3 +117,33 @@ class SearchPostByName(ListView):
     def get_queryset(self):
         menu_comida = self.request.GET.get('menu-comida')
         return Post.objects.filter(comida__icontains=menu_comida)
+
+
+
+
+# ACA EMPIEZA CLIENTES
+
+class ListCliente(ListView):
+  model = Cliente
+
+class CreateCliente(CreateView):
+  model = Cliente
+  success_url = "/panel-cliente"
+  fields = ["nombre", "telefono", "mail", "direccion"]
+
+class DetailCliente(DetailView):
+    model=Cliente
+
+class DeleteCliente(DeleteView):
+  model = Cliente
+  success_url = reverse_lazy("list-cliente")
+
+class UpdateCliente(UpdateView):
+  model = Cliente
+  success_url = "/panel-cliente"
+  fields = ["nombre", "telefono", "mail", "direccion"]
+
+class SearchPostByName(ListView):
+    def get_queryset(self):
+        cliente_nombre = self.request.GET.get('cliente-nombre')
+        return Post.objects.filter(nombre__icontains=cliente_nombre)
