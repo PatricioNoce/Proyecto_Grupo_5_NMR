@@ -14,7 +14,7 @@ class Configuracion(models.Model) :
     nombre_pagina = models.CharField(max_length=100)
     
 
-class menu(models.Model):
+class Menu(models.Model):
     menuSeleccion = (
     ('Tacos', 'tacos'),
     ('Hamburguesa', 'hamburguesa'),

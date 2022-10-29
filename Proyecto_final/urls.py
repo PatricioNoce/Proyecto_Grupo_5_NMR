@@ -16,7 +16,8 @@ Including another URLconf
 from operator import index
 from django.contrib import admin
 from django.urls import path
-from NMR_Food.views import AltaCliente, BuscarCliente, mostrar_clientes, index, mostrar_menu, about, BuscarMenu
+from NMR_Food.views import (AltaCliente, BuscarCliente, mostrar_clientes, index, mostrar_menu, 
+                            about, BuscarMenu, ListMenu, CreateMenu, DeleteMenu, UpdateMenu, DetailMenu )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +27,10 @@ urlpatterns = [
     path('mis-clientes/', mostrar_clientes),
     path('menu/', mostrar_menu),
     path('menu-buscar/', BuscarMenu.as_view()),
-    path('about/', about)
+    path('about/', about),
+    path('panel-menu/', ListMenu.as_view(), name="menu-list"),
+    path('panel-menu/crear', CreateMenu.as_view(), name="menu-create"),
+    path('panel-menu/<int:pk>/borrar', DeleteMenu.as_view(), name="menu-delete"),
+    path('panel-menu/<int:pk>/actualizar', UpdateMenu.as_view(), name="menu-update"),
+    path('panel-menu/<int:pk>/detail', DetailMenu.as_view(), name="menu-detail"),
 ]

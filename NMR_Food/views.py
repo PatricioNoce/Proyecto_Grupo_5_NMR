@@ -1,9 +1,12 @@
+from tkinter import Menu
 from django.shortcuts import render
-from NMR_Food.models import Cliente, Configuracion, menu, Informacion
+from NMR_Food.models import Cliente, Configuracion, Menu, Informacion
 from django.views import View
 from NMR_Food.forms import ClienteForm, Buscar, BuscarMenu
+from django.views.generic import ListView, CreateView, DeleteView, UpdateView, DetailView
+from django.urls import reverse_lazy
 
-# Create your views here.
+
 def index(request):
     configuracion = Configuracion.objects.first()
     return render(request, 'NMR_Food/index.html', {'configuracion': configuracion})
@@ -87,3 +90,30 @@ class armar_menu():
 def about(request):
     informacion = Informacion.objects.first()
     return render(request, 'NMR_Food/about.html', {'informacion': informacion})
+
+
+
+class ListMenu(ListView):
+  model = Menu
+
+class CreateMenu(CreateView):
+  model = Menu
+  success_url = "/panel-menu"
+  fields = ["comida", "precio"]
+
+class DetailMenu(DetailView):
+    model=Menu
+
+class DeleteMenu(DeleteView):
+  model = Menu
+  success_url = reverse_lazy("list-menu")
+
+class UpdateMenu(UpdateView):
+  model = Menu
+  success_url = "/panel-menu"
+  fields = ["comida", "precio"]
+
+class SearchPostByName(ListView):
+    def get_queryset(self):
+        menu_comida = self.request.GET.get('menu-comida')
+        return Post.objects.filter(comida__icontains=menu_comida)

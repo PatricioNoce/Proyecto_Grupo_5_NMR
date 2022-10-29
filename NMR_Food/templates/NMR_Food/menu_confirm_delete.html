@@ -1,0 +1,15 @@
+{% extends 'NMR_Food/base.html' %}
+{% block titulo%} Lista de todos mis Menu {% endblock %}
+
+{% block contenido %}
+
+
+    <form method="post">
+        {% csrf_token %}
+        "¿ Estás seguro de borrar el menu {{ menu.comida }} ?"
+        <input type="submit" value="SI">
+    </form>
+
+    <a href="{% url 'menu-list' %}">Volver a lista de menu</a>
+
+{% endblock %}

@@ -1,5 +1,5 @@
 from django import forms
-from NMR_Food.models import Cliente, menu
+from NMR_Food.models import Cliente, Menu
 
 class ClienteForm(forms.ModelForm):
   class Meta:
