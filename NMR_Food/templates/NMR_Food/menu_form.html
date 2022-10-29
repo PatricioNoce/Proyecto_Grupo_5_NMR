@@ -1,5 +1,5 @@
 {% extends 'NMR_Food/base.html' %}
-{% block titulo%} Alta de nuevo Cliente {% endblock %}
+{% block titulo%} Alta de nuevo Menu {% endblock %}
 {% block contenido %}
   
   <form method="post">
@@ -9,5 +9,7 @@
   </form>
 
   <h2 style="color:green">{{msg_exito}}</h2>
+
+  <a href="{% url 'menu-list' %}">Volver a la lista de menu</a>
 
 {% endblock %}

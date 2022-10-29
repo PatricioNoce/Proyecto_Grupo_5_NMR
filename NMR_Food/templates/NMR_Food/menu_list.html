@@ -2,9 +2,16 @@
 {% block titulo%} Lista de todos mis Menu {% endblock %}
 
 {% block contenido %}
-{% for menu in object_list %}
+
     <ul>
-        <li> Comida: {{menu.comida}}, Precio: {{menu.precio}} </li>
+    {% for menu in object_list %}
+        <li> Comida: {{menu.comida}}, Precio: {{menu.precio}} 
+            <a href="{% url 'menu-delete' menu.id  %}">Borrar</a>
+            <a href="{% url 'menu-update' menu.id  %}">Actulizar</a>
+        </li>
+        {% endfor %}
     </ul>
-{% endfor %}
-{% endblock %}
+
+    <a href="{% url 'menu-create' %}">Crear un nuevo menu</a>
+
+    {% endblock %}

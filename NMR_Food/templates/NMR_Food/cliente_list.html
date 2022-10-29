@@ -2,9 +2,19 @@
 {% block titulo%} Lista de todos mis Clientes {% endblock %}
 
 {% block contenido %}
-{% for cliente in object_list %}
+
     <ul>
-        <li> Nombre: {{cliente.nombre}}, Telefono: {{cliente.telefono}}, Mail: {{cliente.mail}}, Direccion: {{cliente.direccion}} </li>
+    {% for cliente in object_list %}
+
+        <li> Nombre: {{cliente.nombre}}, Telefono: {{cliente.telefono}}, Mail: {{cliente.mail}}, Direccion: {{cliente.direccion}} 
+
+            <a href="{% url 'cliente-delete' cliente.id  %}">Borrar</a>
+            <a href="{% url 'cliente-update' cliente.id  %}">Actulizar</a>
+
+        </li>
+    {% endfor %}
     </ul>
-{% endfor %}
+
+    <a href="{% url 'cliente-create' %}">Crear un nuevo cliente</a>
+
 {% endblock %}
