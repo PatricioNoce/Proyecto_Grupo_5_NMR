@@ -18,7 +18,8 @@ from django.contrib import admin
 from django.urls import path
 from NMR_Food.views import (AltaCliente, BuscarCliente, DeleteCliente, mostrar_clientes, index, mostrar_menu, 
                             about, BuscarMenu, ListMenu, CreateMenu, DeleteMenu, UpdateMenu, DetailMenu, 
-                            ListCliente, CreateCliente, DeleteCliente, UpdateCliente, DetailCliente )
+                            ListCliente, CreateCliente, DeleteCliente, UpdateCliente, DetailCliente, 
+                            HomeView, Nmr_Login, Nmr_Logout, RegistroPagina )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,7 +29,7 @@ urlpatterns = [
     path('mis-clientes/', mostrar_clientes),
     path('menu/', mostrar_menu),
     path('menu-buscar/', BuscarMenu.as_view()),
-    path('about/', about),
+    path('about/', about, name='acerca_de_mi'),
     path('panel-menu/', ListMenu.as_view(), name="menu-list"),
     path('panel-menu/crear', CreateMenu.as_view(), name='menu-create'),
     path('panel-menu/<int:pk>/borrar', DeleteMenu.as_view(), name='menu-delete'),
@@ -39,4 +40,8 @@ urlpatterns = [
     path('panel-cliente/<int:pk>/borrar', DeleteCliente.as_view(), name="cliente-delete"),
     path('panel-cliente/<int:pk>/actualizar', UpdateCliente.as_view(), name="cliente-update"),
     path('panel-cliente/<int:pk>/detail', DetailCliente.as_view(), name="cliente-detail"),
+    path('home', HomeView.as_view(), name='home'),
+    path('login/', Nmr_Login.as_view(), name="login"),
+    path('logout/', Nmr_Logout.as_view(), name="logout"),
+    path('registro/', RegistroPagina.as_view(), name='registro'),
 ]

@@ -1,10 +1,13 @@
 from tkinter import Menu
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from NMR_Food.models import Cliente, Configuracion, Menu, Informacion
 from django.views import View
-from NMR_Food.forms import ClienteForm, Buscar, BuscarMenu
-from django.views.generic import ListView, CreateView, DeleteView, UpdateView, DetailView
+from NMR_Food.forms import ClienteForm, Buscar, BuscarMenu, FormularioRegistroUsuario
+from django.views.generic import ListView, CreateView, DeleteView, UpdateView, DetailView, FormView, TemplateView
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth import login
 
 
 def index(request):
@@ -147,3 +150,36 @@ class SearchPostByName(ListView):
     def get_queryset(self):
         cliente_nombre = self.request.GET.get('cliente-nombre')
         return Post.objects.filter(nombre__icontains=cliente_nombre)
+
+class Nmr_Login(LoginView):
+    template_name = 'NMR_Food/login.html'
+    fields = '__all__'
+    redirect_autheticated_user = True
+    success_url = reverse_lazy('home')
+
+    def get_success_url(self):
+        return reverse_lazy('home')
+
+class RegistroPagina(FormView):
+    template_name = 'NMR_Food/registro.html'
+    form_class = FormularioRegistroUsuario
+    redirect_autheticated_user = True
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        user = form.save()
+        if user is not None:
+            login(self.request, user)
+        return super(RegistroPagina, self).form_valid(form)
+
+    def get(self, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            return redirect('home')
+        return super(RegistroPagina, self).get(*args, **kwargs)
+
+class Nmr_Logout(LogoutView):
+    template_name = 'NMR_Food/logout.html'    
+
+
+class HomeView(LoginRequiredMixin, TemplateView):
+    template_name = 'NMR_Food/index.html'
