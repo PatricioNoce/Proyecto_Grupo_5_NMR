@@ -4,6 +4,10 @@ Menu(comida = 'taco', precio = "500").save()
 Menu(comida = 'hamburguesa', precio = "750").save()
 Menu(comida = 'pizza', precio = "600").save()
 Menu(comida = 'empanadas', precio = "120").save()
+Menu(comida = 'papas-fritas', precio = "450").save()
+Menu(comida = 'grow-cerveza', precio = "700").save()
+Menu(comida = 'super-pancho', precio = "450").save()
+Menu(comida = 'lata-gaseosa', precio = "150").save()
 
 print ("Estas son nuestras opciones")
 

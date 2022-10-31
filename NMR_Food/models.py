@@ -20,6 +20,10 @@ class Menu(models.Model):
     ('Hamburguesa', 'hamburguesa'),
     ('Pizza', 'pizza'),
     ('Empanadas', 'empanadas'),
+    ('papas-fritas', 'Papas-Fritas'),
+    ('Grow-Cerveza', 'grow-cerveza'),
+    ('Super-Pancho', 'super-pancho'),
+    ('Lata-Gaseosa', 'lata-gaseosa'),
     )
     comida= models.CharField(max_length=20, choices=menuSeleccion, default='hamburguesa')
     precio= models.IntegerField()
