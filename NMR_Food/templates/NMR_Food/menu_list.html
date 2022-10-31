@@ -1,17 +1,47 @@
-{% extends 'NMR_Food/base.html' %}
-{% block titulo%} Lista de todos mis Menu {% endblock %}
 
-{% block contenido %}
 
-    <ul>
-    {% for menu in object_list %}
-        <li> Comida: {{menu.comida}}, Precio: {{menu.precio}} 
-            <a href="{% url 'menu-delete' menu.id  %}">Borrar</a>
-            <a href="{% url 'menu-update' menu.id  %}">Actulizar</a>
-        </li>
-        {% endfor %}
-    </ul>
+   {% extends 'NMR_Food/index.html' %}
+   {% block titulo%} Lista de tus Menu favoritos {% endblock %}
+   
+{% block content %}
+   
+   
+   
+   
+   
+   <br>
+   <br>
+   
+<header class="bg-dark py-3">
+<div class="container px-2 px-lg-4 my-2">
+    <div class="text-center text-white">
+        <h1 class="display-4 fw-bolder">Tus mejores opciones</h1>
+        <p class="lead fw-normal text-white-50 mb-0">Siempre cerca de tu mesa</p>
+    </div>
+</div>
+</header>
 
-    <a href="{% url 'menu-create' %}">Crear un nuevo menu</a>
-
-    {% endblock %}
+<br>
+<div class="container text-center">
+    <div class="row">
+            {% for menu in object_list %}
+            <div class="col-sm-6 align-items-center">
+                <div class="card-body">
+                <img src="https://www.pequerecetas.com/wp-content/uploads/2020/10/tacos-mexicanos-660x476.jpg.webp" class="" width="150px">
+                <br><strong>{{menu.comida}}, {{menu.precio}}</strong>
+                
+                <br><button class="btn btn-outline-dark flex-shrink-0" type="button"><i class="bi-cart-fill me-1"></i>Comprar</button>
+                <br><a href="{% url 'menu-update' menu.id  %}"><i class="bi bi-pencil-fill"></i>Editar</a>
+                <br><a href="{% url 'menu-delete' menu.id  %}"><i class="bi bi-trash text-danger"></i>Eliminar</a>
+                <br>
+                <br>
+                <br>
+                <br>
+               
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+</div>
+<a href="{% url 'home' %}">Volver al inicio</a>
+{% endblock %}
