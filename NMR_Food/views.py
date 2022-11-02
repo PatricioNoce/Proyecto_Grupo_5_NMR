@@ -50,7 +50,7 @@ class ListMenu(ListView):
 class CreateMenu(CreateView):
   model = Menu
   success_url = "/panel-menu"
-  fields = ["comida", "precio", "image"]
+  fields = ["comida", "precio", "descripcion", "image"]
 
 class DetailMenu(DetailView):
     model=Menu
@@ -62,7 +62,7 @@ class DeleteMenu(DeleteView):
 class UpdateMenu(UpdateView):
   model = Menu
   success_url = "/panel-menu"
-  fields = ["comida", "precio", "image"]
+  fields = ["comida", "precio", "descripcion", "image"]
 
 class SearchPostByName(ListView):
     def get_queryset(self):

@@ -13,7 +13,7 @@
    <br>
    
 <header class="bg-dark py-3">
-<div class="container px-2 px-lg-4 my-2">
+<div class="container px-2 px-lg-4 my-1">
     <div class="text-center text-white">
         <h1 class="display-4 fw-bolder">Tus mejores opciones</h1>
         <p class="lead fw-normal text-white-50 mb-0">Siempre cerca de tu mesa</p>
@@ -37,6 +37,7 @@
                 <br><strong>{{menu.comida}} <br>{{menu.precio}}</strong>
                 
                 <br><button class="btn btn-outline-dark flex-shrink-0" type="button"><i class="bi-cart-fill me-1"></i>Comprar</button>
+                <br><a href="{% url 'menu-detail' menu.id  %}"><i class="bi bi-eye"></i>Detalle</a>
                 <br><a href="{% url 'menu-update' menu.id  %}"><i class="bi bi-pencil-fill"></i>Editar</a>
                 <br><a href="{% url 'menu-delete' menu.id  %}"><i class="bi bi-trash text-danger"></i>Eliminar</a>
                 <br>

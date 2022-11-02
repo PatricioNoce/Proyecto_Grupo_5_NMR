@@ -25,8 +25,9 @@ class Menu(models.Model):
     ('Super-Pancho', 'super-pancho'),
     ('Lata-Gaseosa', 'lata-gaseosa'),
     )
-    comida= models.CharField(max_length=20, choices=menuSeleccion, default='hamburguesa')
-    precio= models.IntegerField()
+    comida = models.CharField(max_length=20, choices=menuSeleccion, default='hamburguesa')
+    precio = models.IntegerField()
+    descripcion = models.CharField(max_length=250, default='sin descripcion')
     image = models.ImageField(upload_to="menus", null=True, blank=True)
     
 class Informacion(models.Model) :
