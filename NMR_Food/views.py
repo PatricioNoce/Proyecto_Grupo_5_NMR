@@ -67,7 +67,7 @@ class UpdateMenu(UpdateView):
 class SearchPostByName(ListView):
     def get_queryset(self):
         menu_comida = self.request.GET.get('menu-comida')
-        return Post.objects.filter(comida__icontains=menu_comida)
+        return Post.objects.filter(comida__icontains=menu_comida)      
 
 
 class Nmr_Login(LoginView):
