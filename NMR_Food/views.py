@@ -13,59 +13,7 @@ from django.contrib.auth import login
 def index(request):
     configuracion = Configuracion.objects.first()
     return render(request, 'NMR_Food/index.html', {'configuracion': configuracion})
-
-class AltaCliente(View):
-
-    form_class = ClienteForm
-    template_name = 'NMR_Food/alta_cliente.html'
-    initial = {"nombre":"", "telefono":"", "mail":"", "direccion":""}
-
-    def get(self, request):
-        form = self.form_class(initial=self.initial)
-        return render(request, self.template_name, {'form':form})
-
-    def post(self, request):
-        form = self.form_class(request.POST)
-        if form.is_valid():
-            form.save()
-            msg_exito = f"se cargo con éxito el cliente {form.cleaned_data.get('nombre')}"
-            form = self.form_class(initial=self.initial)
-            return render(request, self.template_name, {'form':form, 
-                                                        'msg_exito': msg_exito})
-        
-        return render(request, self.template_name, {"form": form})
-
-def mostrar_clientes(request):
-    lista_clientes = Cliente.objects.all()
-    return render(request, "NMR_Food/clientes.html", {"lista_clientes": lista_clientes})
-
-
-class BuscarCliente(View):
-
-    form_class = Buscar
-    template_name = 'NMR_Food/buscar.html'
-    initial = {"nombre":""}
-
-    def get(self, request):
-        form = self.form_class(initial=self.initial)
-        return render(request, self.template_name, {'form':form})
-
-    def post(self, request):
-        form = self.form_class(request.POST)
-        if form.is_valid():
-            nombre = form.cleaned_data.get("nombre")
-            lista_clientes = Cliente.objects.filter(nombre__icontains=nombre).all() 
-            form = self.form_class(initial=self.initial)
-            return render(request, self.template_name, {'form':form, 
-                                                        'lista_clientes':lista_clientes})
-
-        return render(request, self.template_name, {"form": form})
     
-    
-def mostrar_menu(request):
-    lista_menu = Menu.objects.all()
-    return render(request, "NMR_Food/lista_menu.html", {"lista_menu": lista_menu})
-
 class BuscarMenu(View):
 
     form_class = BuscarMenu
@@ -121,35 +69,6 @@ class SearchPostByName(ListView):
         menu_comida = self.request.GET.get('menu-comida')
         return Post.objects.filter(comida__icontains=menu_comida)
 
-
-
-
-# ACA EMPIEZA CLIENTES
-
-class ListCliente(ListView):
-  model = Cliente
-
-class CreateCliente(CreateView):
-  model = Cliente
-  success_url = "/panel-cliente"
-  fields = ["nombre", "telefono", "mail", "direccion"]
-
-class DetailCliente(DetailView):
-    model=Cliente
-
-class DeleteCliente(DeleteView):
-  model = Cliente
-  success_url = reverse_lazy("list-cliente")
-
-class UpdateCliente(UpdateView):
-  model = Cliente
-  success_url = "/panel-cliente"
-  fields = ["nombre", "telefono", "mail", "direccion"]
-
-class SearchPostByName(ListView):
-    def get_queryset(self):
-        cliente_nombre = self.request.GET.get('cliente-nombre')
-        return Post.objects.filter(nombre__icontains=cliente_nombre)
 
 class Nmr_Login(LoginView):
     template_name = 'NMR_Food/login.html'
