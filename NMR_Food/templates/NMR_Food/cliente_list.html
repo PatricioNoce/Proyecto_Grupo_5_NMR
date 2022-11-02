@@ -9,7 +9,7 @@
         <li> Nombre: {{cliente.nombre}}, Telefono: {{cliente.telefono}}, Mail: {{cliente.mail}}, Direccion: {{cliente.direccion}} 
 
             <a href="{% url 'cliente-delete' cliente.id  %}">Borrar</a>
-            <a href="{% url 'cliente-update' cliente.id  %}">Actulizar</a>
+            <a href="{% url 'cliente-update' cliente.id  %}">Actualizar</a>
 
         </li>
     {% endfor %}

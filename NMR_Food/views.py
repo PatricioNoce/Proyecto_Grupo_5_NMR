@@ -63,7 +63,7 @@ class BuscarCliente(View):
     
     
 def mostrar_menu(request):
-    lista_menu = menu.objects.all()
+    lista_menu = Menu.objects.all()
     return render(request, "NMR_Food/lista_menu.html", {"lista_menu": lista_menu})
 
 class BuscarMenu(View):
@@ -80,7 +80,7 @@ class BuscarMenu(View):
         form = self.form_class(request.POST)
         if form.is_valid():
             comida = form.cleaned_data.get("comida")
-            lista_menu = menu.objects.filter(comida__icontains=comida).all() 
+            lista_menu = Menu.objects.filter(comida__icontains=comida).all() 
             form = self.form_class(initial=self.initial)
             return render(request, self.template_name, {'form':form, 
                                                         'lista_menu':lista_menu})
