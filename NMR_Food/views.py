@@ -50,19 +50,19 @@ class ListMenu(ListView):
 class CreateMenu(CreateView):
   model = Menu
   success_url = "/panel-menu"
-  fields = ["comida", "precio"]
+  fields = ["comida", "precio", "image"]
 
 class DetailMenu(DetailView):
     model=Menu
 
 class DeleteMenu(DeleteView):
   model = Menu
-  success_url = reverse_lazy("list-menu")
+  success_url = reverse_lazy("menu-list")
 
 class UpdateMenu(UpdateView):
   model = Menu
   success_url = "/panel-menu"
-  fields = ["comida", "precio"]
+  fields = ["comida", "precio", "image"]
 
 class SearchPostByName(ListView):
     def get_queryset(self):
