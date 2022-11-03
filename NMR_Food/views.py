@@ -1,8 +1,8 @@
 from tkinter import Menu
 from django.shortcuts import render, redirect
-from NMR_Food.models import Cliente, Configuracion, Menu, Informacion
+from nmr_food.models import Cliente, Configuracion, Menu, Informacion
 from django.views import View
-from NMR_Food.forms import ClienteForm, Buscar, BuscarMenu, FormularioRegistroUsuario
+from nmr_food.forms import ClienteForm, Buscar, BuscarMenu, FormularioRegistroUsuario
 from django.views.generic import ListView, CreateView, DeleteView, UpdateView, DetailView, FormView, TemplateView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -12,12 +12,12 @@ from django.contrib.auth import login
 
 def index(request):
     configuracion = Configuracion.objects.first()
-    return render(request, 'NMR_Food/index.html', {'configuracion': configuracion})
+    return render(request, 'nmr_food/index.html', {'configuracion': configuracion})
     
 class BuscarMenu(View):
 
     form_class = BuscarMenu
-    template_name = 'NMR_Food/buscar_menu.html'
+    template_name = 'nmr_food/buscar_menu.html'
     initial = {"comida":""}
 
     def get(self, request):
@@ -35,12 +35,10 @@ class BuscarMenu(View):
 
         return render(request, self.template_name, {"form": form})
 
-class armar_menu():
-    pass
 
 def about(request):
     informacion = Informacion.objects.first()
-    return render(request, 'NMR_Food/about.html', {'informacion': informacion})
+    return render(request, 'nmr_food/about.html', {'informacion': informacion})
 
 
 
@@ -71,7 +69,7 @@ class SearchPostByName(ListView):
 
 
 class Nmr_Login(LoginView):
-    template_name = 'NMR_Food/login.html'
+    template_name = 'nmr_food/login.html'
     fields = '__all__'
     redirect_autheticated_user = True
     success_url = reverse_lazy('home')
@@ -80,7 +78,7 @@ class Nmr_Login(LoginView):
         return reverse_lazy('home')
 
 class RegistroPagina(FormView):
-    template_name = 'NMR_Food/registro.html'
+    template_name = 'nmr_food/registro.html'
     form_class = FormularioRegistroUsuario
     redirect_autheticated_user = True
     success_url = reverse_lazy('home')
@@ -97,8 +95,8 @@ class RegistroPagina(FormView):
         return super(RegistroPagina, self).get(*args, **kwargs)
 
 class Nmr_Logout(LogoutView):
-    template_name = 'NMR_Food/logout.html'    
+    template_name = 'nmr_food/logout.html'    
 
 
 class HomeView(LoginRequiredMixin, TemplateView):
-    template_name = 'NMR_Food/index.html'
+    template_name = 'nmr_food/index.html'

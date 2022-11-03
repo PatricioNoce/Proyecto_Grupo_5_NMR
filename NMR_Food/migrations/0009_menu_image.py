@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('NMR_Food', '0008_alter_menu_comida'),
+        ('nmr_food', '0008_alter_menu_comida'),
     ]
 
     operations = [

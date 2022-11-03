@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('NMR_Food', '0002_configuracion_alter_cliente_direccion'),
+        ('nmr_food', '0002_configuracion_alter_cliente_direccion'),
     ]
 
     operations = [

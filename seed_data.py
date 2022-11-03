@@ -1,4 +1,4 @@
-from NMR_Food.models import Menu, Cliente
+from nmr_food.models import Menu, Cliente
 
 Menu(comida = 'taco', precio = "500").save()
 Menu(comida = 'hamburguesa', precio = "750").save()
@@ -18,4 +18,5 @@ Cliente(nombre = 'Hugo', telefono = 57658798, mail = 'hugo@gma.com', direccion =
 Cliente(nombre = 'Patricio', telefono = 63658298, mail = 'patricio@gma.com', direccion = 'calle patricio 2456').save()
 
 print ("Clientes de prueba cargados correctamente")
+
 

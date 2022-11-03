@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'NMR_Food.apps.NmrFoodConfig',
+    'nmr_food.apps.NmrFoodConfig',
 ]
 
 MIDDLEWARE = [

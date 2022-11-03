@@ -1,5 +1,5 @@
 from django.contrib import admin
-from NMR_Food.models import Cliente, Menu
+from nmr_food.models import Cliente, Menu
 
 admin.site.register(Cliente)
 
