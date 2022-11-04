@@ -1,6 +1,19 @@
+{% extends 'nmr_food/index.html' %}
+{% block titulo%} Lista de tus Menu favoritos {% endblock %}
+   
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 
+    <header class="bg-dark py-2">
+        <div class="container px-4 px-lg-5 my-3">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">NMR Food</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Acerca de nosotros</p>
+            </div>
+        </div>
+    </header>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,24 +22,30 @@
 </head>
 
 <body>
-    <div> NMR_Food </div>
     <div>
-        <h1>Acerca de nosotros:</h1>
         <div>
             <h2>Marcos Martinez<h2>
-                <p>Es un estudiante ambicioso, aspira a dedicarse a la ciencia de datos. <p>
+                <p><h4>Es un estudiante ambicioso, aspira a dedicarse a la ciencia de datos.</h4><p>
         </div>
         <div>
             <h2>Patricio Noce<h2>
-                <p>Es un profesional, analista de riesgo crediticio en una empresa metalurgica. <p>
+                <p><h4>Es un profesional, analista de riesgo crediticio en una empresa metalurgica.</h4><p>
         </div>
         <div>
             <h2>Martin Roca<h2>
-                <p>Es un estudiante dedicado al aprendizaje y aplicacion de la ciencia de datos. <p>
+                <p><h4>Es un estudiante dedicado al aprendizaje y aplicacion de la ciencia de datos. </h4><p>
         </div>
     </div>
-    <h2>{% block titulo %}{% endblock %}<h2>
-    {% block contenido %}{% endblock %}
+
 </body>
 
+</div>
+<li class="nav-item">
+    <a href="{% url 'home' %}"><strong> Volver al inicio </strong></a>
+</li>
+</div>
+
+
 </html>
+
+{% endblock %}

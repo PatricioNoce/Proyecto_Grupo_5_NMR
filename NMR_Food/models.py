@@ -15,17 +15,7 @@ class Configuracion(models.Model) :
     
 
 class Menu(models.Model):
-    menuSeleccion = (
-    ('Tacos', 'tacos'),
-    ('Hamburguesa', 'hamburguesa'),
-    ('Pizza', 'pizza'),
-    ('Empanadas', 'empanadas'),
-    ('papas-fritas', 'Papas-Fritas'),
-    ('Grow-Cerveza', 'grow-cerveza'),
-    ('Super-Pancho', 'super-pancho'),
-    ('Lata-Gaseosa', 'lata-gaseosa'),
-    )
-    comida = models.CharField(max_length=20, choices=menuSeleccion, default='hamburguesa')
+    comida = models.CharField(max_length=20)
     precio = models.IntegerField()
     descripcion = models.CharField(max_length=250, default='sin descripcion')
     image = models.ImageField(upload_to="menus", null=True, blank=True)

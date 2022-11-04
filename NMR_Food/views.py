@@ -1,8 +1,8 @@
 from tkinter import Menu
 from django.shortcuts import render, redirect
-from nmr_food.models import Cliente, Configuracion, Menu, Informacion
+from nmr_food.models import Configuracion, Menu, Informacion
 from django.views import View
-from nmr_food.forms import ClienteForm, Buscar, BuscarMenu, FormularioRegistroUsuario
+from nmr_food.forms import BuscarMenu, FormularioRegistroUsuario
 from django.views.generic import ListView, CreateView, DeleteView, UpdateView, DetailView, FormView, TemplateView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin

@@ -20,13 +20,12 @@ from operator import index
 from django.contrib import admin
 from django.urls import path
 from nmr_food.views import (index, 
-                            about, HomeView, BuscarMenu, ListMenu, CreateMenu, DeleteMenu, UpdateMenu, DetailMenu,
+                            about, BuscarMenu, ListMenu, CreateMenu, DeleteMenu, UpdateMenu, DetailMenu,
                              Nmr_Login, Nmr_Logout, RegistroPagina )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('nmr_food/', index),
-    path('home/', HomeView.as_view(), name='home'),
+    path('nmr_food/', index, name='home'),
     path('menu-buscar/', BuscarMenu.as_view()),
     path('about/', about, name='acerca_de_mi'),
     path('panel-menu/', ListMenu.as_view(), name="menu-list"),
