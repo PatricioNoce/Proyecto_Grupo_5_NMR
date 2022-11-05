@@ -1,12 +1,7 @@
 from django import forms
 from nmr_food.models import Cliente, Menu
-from django.contrib.auth.forms import UserChangeForm, UserCreationForm, PasswordChangeForm
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth.models import User 
-
-class ClienteForm(forms.ModelForm):
-  class Meta:
-    model = Cliente
-    fields = ['nombre','telefono', 'mail', 'direccion']
 
 class Buscar(forms.Form):
   nombre = forms.CharField(max_length=100)

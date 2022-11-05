@@ -19,8 +19,7 @@ from django.conf.urls.static import static
 from operator import index
 from django.contrib import admin
 from django.urls import path
-from nmr_food.views import (index, 
-                            about, BuscarMenu, ListMenu, CreateMenu, DeleteMenu, UpdateMenu, DetailMenu,
+from nmr_food.views import (index, about, BuscarMenu, ListMenu, CreateMenu, DeleteMenu, UpdateMenu, DetailMenu,
                              Nmr_Login, Nmr_Logout, RegistroPagina )
 
 urlpatterns = [
