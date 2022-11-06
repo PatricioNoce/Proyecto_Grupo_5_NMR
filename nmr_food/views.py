@@ -110,6 +110,7 @@ class Nmr_Logout(LogoutView):
 class HomeView(LoginRequiredMixin, TemplateView):
     template_name = 'nmr_food/index.html'
     
+    
 class ListPost(LoginRequiredMixin, ListView):
     model=Post
 
