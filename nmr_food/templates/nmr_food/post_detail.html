@@ -1,0 +1,33 @@
+{% extends 'nmr_food/index.html' %}
+
+{% block content %}
+
+
+<header class="bg-dark py-3">
+    <div class="container px-2 px-lg-4 my-1">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Gracias por tu opionion</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Y tambien por tu compra!!</p>
+        </div>
+    </div>
+    </header>
+<br>
+<br>
+<a href="{% url 'list-post' %}">Volver a la lista publicaciones</a>
+<br>
+<br>
+<div class="container">
+
+    <div class="card-body">
+        <img src="{{ post.image.url }}" class="" width="350px">
+        <br><h1><strong>{{post.title}}</strong></h1>
+        <h4><strong>{{post.short_content}}</strong></h4>
+        <br>{{post.content}}
+        <br>{{post.date_published}}
+    </div>
+</div>
+<br>
+
+<br>
+
+{% endblock %}

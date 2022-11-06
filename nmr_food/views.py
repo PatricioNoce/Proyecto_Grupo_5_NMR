@@ -1,6 +1,6 @@
 from tkinter import Menu
 from django.shortcuts import render, redirect
-from nmr_food.models import Configuracion, Menu, Informacion
+from nmr_food.models import Configuracion, Menu, Informacion, Post
 from django.views import View
 from nmr_food.forms import BuscarMenu, FormularioRegistroUsuario
 from django.views.generic import ListView, CreateView, DeleteView, UpdateView, DetailView, FormView, TemplateView
@@ -13,6 +13,7 @@ from django.contrib.auth import login
 def index(request):
     configuracion = Configuracion.objects.first()
     return render(request, 'nmr_food/index.html', {'configuracion': configuracion})
+    
     
 class BuscarMenu(View):
 
@@ -41,31 +42,35 @@ def about(request):
     return render(request, 'nmr_food/about.html', {'informacion': informacion})
 
 
-
 class ListMenu(ListView):
   model = Menu
+
 
 class CreateMenu(CreateView):
   model = Menu
   success_url = "/panel-menu"
   fields = ["comida", "precio", "descripcion", "image"]
 
+
 class DetailMenu(DetailView):
     model=Menu
+
 
 class DeleteMenu(DeleteView):
   model = Menu
   success_url = reverse_lazy("menu-list")
+
 
 class UpdateMenu(UpdateView):
   model = Menu
   success_url = "/panel-menu"
   fields = ["comida", "precio", "descripcion", "image"]
 
-class SearchPostByName(ListView):
-    def get_queryset(self):
-        menu_comida = self.request.GET.get('menu-comida')
-        return Post.objects.filter(comida__icontains=menu_comida)      
+
+#class SearchPostByName(ListView):
+    # def get_queryset(self):
+    #     menu_comida = self.request.GET.get('menu-comida')
+    #     return Post.objects.filter(comida__icontains=menu_comida)      
 
 
 class Nmr_Login(LoginView):
@@ -77,11 +82,13 @@ class Nmr_Login(LoginView):
     def get_success_url(self):
         return reverse_lazy('home')
 
+
 class RegistroPagina(FormView):
     template_name = 'nmr_food/registro.html'
     form_class = FormularioRegistroUsuario
     redirect_autheticated_user = True
     success_url = reverse_lazy('home')
+
 
     def form_valid(self, form):
         user = form.save()
@@ -89,10 +96,12 @@ class RegistroPagina(FormView):
             login(self.request, user)
         return super(RegistroPagina, self).form_valid(form)
 
+
     def get(self, *args, **kwargs):
         if self.request.user.is_authenticated:
             return redirect('home')
         return super(RegistroPagina, self).get(*args, **kwargs)
+
 
 class Nmr_Logout(LogoutView):
     template_name = 'nmr_food/logout.html'    
@@ -100,3 +109,33 @@ class Nmr_Logout(LogoutView):
 
 class HomeView(LoginRequiredMixin, TemplateView):
     template_name = 'nmr_food/index.html'
+    
+class ListPost(LoginRequiredMixin, ListView):
+    model=Post
+
+
+class CreatePost(CreateView):
+    model=Post
+    fields = ['title', 'short_content', 'content', 'image']
+    success_url = reverse_lazy("list-post")
+
+
+class DetailPost(DetailView):
+    model=Post
+
+
+class UpdatePost(UpdateView):
+    model=Post
+    fields=['title', 'short_content', 'content', 'image']
+    success_url = reverse_lazy("list-post")
+
+
+class DeletePost(DeleteView):
+    model=Post
+    success_url = reverse_lazy("list-post")
+
+
+class SearchPostByName(ListView):
+    def get_queryset(self):
+        menu_comida = self.request.GET.get('menu-comida')
+        return Post.objects.filter(comida__icontains=menu_comida)

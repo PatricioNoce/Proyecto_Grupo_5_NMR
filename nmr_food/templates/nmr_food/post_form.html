@@ -1,0 +1,15 @@
+{% extends 'nmr_food/base.html' %}
+{% block titulo%} Alta de Publicacion {% endblock %}
+{% block contenido %}
+
+  <form enctype='multipart/form-data' method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Guardar">
+  </form>
+
+  <h2 style="color:green">{{msg_exito}}</h2>
+
+  <a href="{% url 'list-post' %}">Volver a la lista publicaciones</a>
+
+{% endblock %}

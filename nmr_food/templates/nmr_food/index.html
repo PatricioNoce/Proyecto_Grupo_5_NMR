@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">    
     <head>
         
         <meta charset="utf-1" />
@@ -29,7 +29,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'menu-list' %}">Lista Menus</a>
                           </li>
-                                                    
+                          <li class="nav-item">
+                            <a class="nav-link" href="{% url 'list-post' %}">Publicaciones</a>
+                          </li>                             
                           <li class="nav-item">
                             <a class="nav-link" href="{% url 'acerca_de_mi' %}">Conocenos</a>
                           </li>
@@ -92,7 +94,7 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://st2.depositphotos.com/3957801/5642/i/450/depositphotos_56423065-stock-photo-bacon-burger.jpg" alt="..." />
+                            <img class="card-img-top" src="{% static 'nmr_food/assets/burger.jpg' %}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -113,7 +115,7 @@
                             <!-- Sale badge-->
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://www.pequerecetas.com/wp-content/uploads/2020/10/tacos-mexicanos-660x476.jpg.webp" alt="..." />
+                            <img class="card-img-top" src="{% static 'nmr_food/assets/tacos.jpg' %}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -143,7 +145,7 @@
                             <!-- Sale badge-->
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://canalc.com.ar/wp-content/uploads/2022/04/pizza-margarita-3684-1.jpg" alt="..." />
+                            <img class="card-img-top" src="{% static 'nmr_food/assets/pizza.jpg' %}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -163,7 +165,7 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://media.istockphoto.com/photos/closeup-of-argentinian-empanadas-with-sauces-and-wine-on-a-dark-picture-id1158987157?k=20&m=1158987157&s=612x612&w=0&h=wNCyN_TnH9mnmhhIBzuOgG8sOVBeDzCskvmqcVpUPbw=" alt="..." />
+                            <img class="card-img-top" src="{% static 'nmr_food/assets/empanadas.jpg' %}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -192,7 +194,7 @@
                             <!-- Sale badge-->
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://www.cocinayvino.com/wp-content/uploads/2022/07/www.cocinayvino.com-como-lograr-unas-buenas-papas-fritas-cocinayvino-papasfritas-por123rf-696x392.jpg" alt="..." />
+                            <img class="card-img-top" src="{% static 'nmr_food/assets/fritas.jpg' %}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -212,7 +214,7 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://infokioscos.com.ar//wp-content/uploads22/growlers-768x512.jpg" alt="..." />
+                            <img class="card-img-top" src="{% static 'nmr_food/assets/growlers.jpg' %}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -233,7 +235,7 @@
                             <!-- Sale badge-->
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://www.fguarani.com.py/img/superPancho.png" alt="..." />
+                            <img class="card-img-top" src="{% static 'nmr_food/assets/superpancho.jpg' %}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -261,7 +263,7 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://previews.123rf.com/images/choneschones/choneschones1505/choneschones150500042/41052519-sofia-bulgaria-23-de-mayo-2014-colecci%C3%B3n-de-varias-marcas-de-bebidas-gaseosas-en-latas-de-aluminio-a.jpg" alt="..." />
+                            <img class="card-img-top" src="{% static 'nmr_food/assets/gaseosas.jpg' %}" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">

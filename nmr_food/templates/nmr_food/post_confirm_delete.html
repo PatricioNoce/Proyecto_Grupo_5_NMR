@@ -1,0 +1,17 @@
+{% extends 'nmr_food/base.html' %}
+{% block titulo%} Borrando Publicacion {% endblock %}
+
+{% block contenido %}
+<body>
+    ¿Está seguro de borrar el post {{post.title}}? 
+    <form method="post">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="si">
+    </form>
+
+    <a href="{% url 'list-post' %}">Volver a la lista de post</a>
+
+
+</body>
+{% endblock %}
