@@ -8,6 +8,8 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.admin import User
 
 
 def index(request):
@@ -103,6 +105,12 @@ class RegistroPagina(FormView):
         return super(RegistroPagina, self).get(*args, **kwargs)
 
 
+class ProfileUpdate(UpdateView):
+    model = User
+    fields = ['username']
+    success_url = reverse_lazy('login')
+
+
 class Nmr_Logout(LogoutView):
     template_name = 'nmr_food/logout.html'    
 
@@ -110,7 +118,7 @@ class Nmr_Logout(LogoutView):
 class HomeView(LoginRequiredMixin, TemplateView):
     template_name = 'nmr_food/index.html'
     
-    
+
 class ListPost(LoginRequiredMixin, ListView):
     model=Post
 
@@ -138,5 +146,5 @@ class DeletePost(DeleteView):
 
 class SearchPostByName(ListView):
     def get_queryset(self):
-        menu_comida = self.request.GET.get('menu-comida')
-        return Post.objects.filter(comida__icontains=menu_comida)
+        post_title = self.request.GET.get('post-title')
+        return Post.objects.filter(title__icontains=post_title)

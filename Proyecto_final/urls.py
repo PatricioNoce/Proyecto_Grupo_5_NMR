@@ -20,7 +20,7 @@ from operator import index
 from django.contrib import admin
 from django.urls import path
 from nmr_food.views import (index, about, BuscarMenu, ListMenu, CreateMenu, DeleteMenu, UpdateMenu, DetailMenu,
-                             Nmr_Login, Nmr_Logout, RegistroPagina, ListPost, CreatePost, UpdatePost, DetailPost, 
+                             Nmr_Login, Nmr_Logout, RegistroPagina, ProfileUpdate, ListPost, CreatePost, UpdatePost, DetailPost, 
                              DeletePost, SearchPostByName  )
 
 urlpatterns = [
@@ -36,6 +36,7 @@ urlpatterns = [
     path('login/', Nmr_Login.as_view(), name="login"),
     path('logout/', Nmr_Logout.as_view(), name="logout"),
     path('registro/', RegistroPagina.as_view(), name='registro'),
+    path('user-profile/<int:pk>/', ProfileUpdate.as_view(), name='profile-update'),
     path('list/', ListPost.as_view(), name="list-post"),
     path('create/', CreatePost.as_view(), name="create-post"),
     path('detail/<int:pk>/', DetailPost.as_view(), name="detail-post"),

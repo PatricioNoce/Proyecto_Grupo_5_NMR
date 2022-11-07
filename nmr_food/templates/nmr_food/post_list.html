@@ -44,6 +44,18 @@
             </div>
             {% endfor %}
     </div>
+    
+        <div class="card mb-4">
+        <div class="card-header"><strong>Busca tu Publicacion</strong></div>
+            <div class="card-body">
+                <form action="{% url 'search-by-name-post' %}" method="get">
+                    {% csrf_token %}
+                    <input type="search" name="post-title">
+                    <input type="submit" value="Buscar">
+                </form>
+            </div>
+        </div>
+   
 
     <a href="{% url 'home' %}"><strong> Volver al inicio </strong></a>
 

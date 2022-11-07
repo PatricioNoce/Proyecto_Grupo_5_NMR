@@ -1,0 +1,24 @@
+{% extends 'nmr_food/index.html' %}
+
+{% block content %}
+
+<header class="bg-dark py-3">
+    <div class="container px-2 px-lg-4 my-1">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Edita tu perfil</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Elegi tu nuevo nombre de usuario</p>
+        </div>
+    </div>
+</header>
+<br>
+<br>
+<br>
+<form enctype='multipart/form-data' method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <strong><input type="submit" value="Guardar"></strong>
+</form>
+<br>
+<br>
+<br>
+{% endblock %}
