@@ -7,7 +7,7 @@ class Configuracion(models.Model) :
     
 class Menu(models.Model):
     comida = models.CharField(max_length=20)
-    precio = models.IntegerField()
+    precio = models.DecimalField(max_digits=10, decimal_places=2)
     descripcion = models.CharField(max_length=250, default='sin descripcion')
     image = models.ImageField(upload_to="menus", null=True, blank=True)
     
