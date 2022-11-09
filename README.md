@@ -32,6 +32,7 @@ Registrarse, ver los menu disponibles, tener acceso a reseñas y crear menus pro
 - Django 4.0
 
 # Link al video demostrativo:
+https://youtu.be/OpygsnLKpdk
 
 
 
