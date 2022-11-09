@@ -11,8 +11,10 @@ class Menu(models.Model):
     descripcion = models.CharField(max_length=250, default='sin descripcion')
     image = models.ImageField(upload_to="menus", null=True, blank=True)
     
+    
 class Informacion(models.Model) :
     nombres_integrantes = models.CharField(max_length=100)
+    
     
 class Post(models.Model):
     title = models.CharField(max_length=100)

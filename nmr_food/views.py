@@ -11,11 +11,6 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.admin import User
 
-
-def index(request):
-    configuracion = Configuracion.objects.first()
-    return render(request, 'nmr_food/index.html', {'configuracion': configuracion})
-    
     
 class BuscarMenu(View):
 
@@ -38,7 +33,6 @@ class BuscarMenu(View):
 
         return render(request, self.template_name, {"form": form})
 
-# ACA TENEMOS LAS CLASES PARA MENU
 
 class ListMenu(ListView):
   model = Menu
@@ -63,14 +57,8 @@ class UpdateMenu(UpdateView):
   model = Menu
   success_url = "/panel-menu"
   fields = ["comida", "precio", "descripcion", "image"]
-
-
-#class SearchPostByName(ListView):
-    # def get_queryset(self):
-    #     menu_comida = self.request.GET.get('menu-comida')
-    #     return Post.objects.filter(comida__icontains=menu_comida)      
-
-
+  
+  
 class Nmr_Login(LoginView):
     template_name = 'nmr_food/login.html'
     fields = '__all__'
@@ -114,7 +102,6 @@ class Nmr_Logout(LogoutView):
 class HomeView(LoginRequiredMixin, TemplateView):
     template_name = 'nmr_food/index.html'
     
-# ACA TENEMOS LAS CLASES PARA POST
 
 class ListPost(LoginRequiredMixin, ListView):
     model=Post
@@ -150,3 +137,8 @@ class SearchPostByName(ListView):
 def about(request):
     informacion = Informacion.objects.first()
     return render(request, 'nmr_food/about.html', {'informacion': informacion})
+
+
+def index(request):
+    configuracion = Configuracion.objects.first()
+    return render(request, 'nmr_food/index.html', {'configuracion': configuracion})
