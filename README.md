@@ -1,29 +1,24 @@
-## Proyecto Final Coder House - Python
-Comisión: 44065
-Alumnos:  
-## Marcos Martinez
-## Patricio Noce
-## Martin Roca
-
-# Nombre del Proyecto:
-## NMR_Food
-Versión:
-1.0
+## Proyecto Final Coder House - Python:
+# NMR_Food
+- Comisión: 44065
+- Alumnos:  
+- Marcos Martinez
+- Patricio Noce
+- Martin Roca
 
 # Descripción del Proyecto
-Página Web destinada a usuarios que deseen comprar comida elaborada
-
-Los usuarios pueden realizar las siguientes accciones:
-Darse de alta como cliente, buscar sus datos y ver los menu disponibles y sus precios.
+- Página Web de una casa de comidas.
+- Los usuarios pueden realizar las siguientes accciones:
+Registrarse, ver los menu disponibles, tener acceso a reseñas y crear menus propios.
 
 # Orden de utilidades
 - Para ver nuestra pagina primero ir a la url "nmr_food/"
-- Para darse de alta como cliente ir a la url "alta-cliente/"
-- Para buscar a un cliente en especifico ir a la url "cliente-buscar/"
-- Para ver el registro de todos los clientes ir a la url "mis-clientes/"
-- Para ver el menu ir a la url "menu/"
-- Para buscar en la base de datos del menu ir a la url "menu-buscar/"
-- Para leer informacion sobre los creadores ir a la url "about/"
+- Para crearse una cuenta ir al "registrate" en la pagina principal
+- Para iniciar/cerrar sesion simplemente loguerse en el boton "log in"/"log out"
+- Para crear un menu, hacer click en el boton "crear menu"
+- Para hacer una reseña, hacer click en el boton "reseñas"
+- Tambien podes editar tu perfil, los menu y las reseñas creadas
+- Para leer informacion sobre los creadores, hacer click en el boton "conocenos"
 
 # Tecnología Utilizada
 - Front-End:
@@ -35,6 +30,8 @@ Darse de alta como cliente, buscar sus datos y ver los menu disponibles y sus pr
 # Back-End:
 - Python 3.10.4
 - Django 4.0
+
+# Link al video demostrativo:
 
 
 
