@@ -1,5 +1,4 @@
 from django import forms
-from nmr_food.models import Cliente, Menu
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth.models import User 
 

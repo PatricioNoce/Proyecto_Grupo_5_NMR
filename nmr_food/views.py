@@ -38,11 +38,7 @@ class BuscarMenu(View):
 
         return render(request, self.template_name, {"form": form})
 
-
-def about(request):
-    informacion = Informacion.objects.first()
-    return render(request, 'nmr_food/about.html', {'informacion': informacion})
-
+# ACA TENEMOS LAS CLASES PARA MENU
 
 class ListMenu(ListView):
   model = Menu
@@ -118,6 +114,7 @@ class Nmr_Logout(LogoutView):
 class HomeView(LoginRequiredMixin, TemplateView):
     template_name = 'nmr_food/index.html'
     
+# ACA TENEMOS LAS CLASES PARA POST
 
 class ListPost(LoginRequiredMixin, ListView):
     model=Post
@@ -148,3 +145,8 @@ class SearchPostByName(ListView):
     def get_queryset(self):
         post_title = self.request.GET.get('post-title')
         return Post.objects.filter(title__icontains=post_title)
+
+
+def about(request):
+    informacion = Informacion.objects.first()
+    return render(request, 'nmr_food/about.html', {'informacion': informacion})
