@@ -34,11 +34,11 @@ class BuscarMenu(View):
         return render(request, self.template_name, {"form": form})
 
 
-class ListMenu(ListView):
+class ListMenu(LoginRequiredMixin, ListView):
   model = Menu
 
 
-class CreateMenu(CreateView):
+class CreateMenu(LoginRequiredMixin, CreateView):
   model = Menu
   success_url = "/panel-menu"
   fields = ["comida", "precio", "descripcion", "image"]
@@ -48,12 +48,12 @@ class DetailMenu(DetailView):
     model=Menu
 
 
-class DeleteMenu(DeleteView):
+class DeleteMenu(LoginRequiredMixin, DeleteView):
   model = Menu
   success_url = reverse_lazy("menu-list")
 
 
-class UpdateMenu(UpdateView):
+class UpdateMenu(LoginRequiredMixin, UpdateView):
   model = Menu
   success_url = "/panel-menu"
   fields = ["comida", "precio", "descripcion", "image"]
